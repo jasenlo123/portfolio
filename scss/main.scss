@@ -1,5 +1,6 @@
 @import 'config';
 @import 'menu';
+@import 'mobile';
 
 
 * {
@@ -12,11 +13,13 @@
    color: white;
    height: 100%;
    margin: 0;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    line-height: 1.5;
  }
 
- h1, h2, h3 {
+ h1, 
+ h2, 
+ h3 {
    margin: 0;
    font-weight: 400;
 
@@ -27,7 +30,6 @@
      margin-bottom: 2rem;
      padding: 0.1rem 0.2rem;
      background: rgba(lighten($color: $primary-color, $amount: 2), 0.5);
-     width: 10%;
    }
  }
 
