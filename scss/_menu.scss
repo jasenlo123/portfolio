@@ -90,10 +90,9 @@
       transform: translate3d(0,0,0);
     }
 
-    .portrait {
+    .bio-image {
       width: 250px;
       height: 250px;
-      background: url(/dist/img/portrait.jpg);
       background-size: cover;
       border-radius: 100%;
       border: solid 3px $secondary-color;

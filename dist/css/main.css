@@ -53,10 +53,9 @@
     background: rgba(34, 34, 34, 0.9); }
     .menu-branding.show {
       transform: translate3d(0, 0, 0); }
-    .menu-branding .portrait {
+    .menu-branding .bio-image {
       width: 250px;
       height: 250px;
-      background: url(/dist/img/portrait.jpg);
       background-size: cover;
       border-radius: 100%;
       border: solid 3px skyblue; }
@@ -101,11 +100,11 @@ body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5; }
-  body#bg-img {
+  body#bgimg {
     background: url(/dist/img/background.jpg);
     background-attachment: fixed;
     background-size: cover; }
-    body#bg-img .overlay {
+    body#bgimg .overlay {
       position: absolute;
       top: 0;
       right: 0;
