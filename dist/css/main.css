@@ -53,7 +53,7 @@
     background: rgba(34, 34, 34, 0.9); }
     .menu-branding.show {
       transform: translate3d(0, 0, 0); }
-    .menu-branding .bio-image {
+    .menu-branding .portrait {
       width: 250px;
       height: 250px;
       background-size: cover;
