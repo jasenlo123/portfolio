@@ -1,5 +1,5 @@
 $primary-color: #222 ; 
-$secondary-color: skyblue;
+$secondary-color: aqua;
 $show-home-image: true;
 $home-image: url(/dist/img/background.jpg);
 $background-opacity: 0.9;
@@ -10,7 +10,7 @@ $background-opacity: 0.9;
 
 @mixin background {
  @if $show-home-image {
-   &#bgimg {
+   &#bg-img {
      background: $home-image;
      background-attachment: fixed;
      background-size: cover;

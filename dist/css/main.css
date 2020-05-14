@@ -56,16 +56,17 @@
     .menu-branding .portrait {
       width: 250px;
       height: 250px;
+      background: url(/dist/img/portrait.jpg);
       background-size: cover;
       border-radius: 100%;
-      border: solid 3px skyblue; }
+      border: solid 3px aqua; }
   .menu .nav-item {
     transform: translate3d(600px, 0, 0);
     transition: all 0.5s ease-out; }
     .menu .nav-item.show {
       transform: translate3d(0, 0, 0); }
     .menu .nav-item.current > a {
-      color: skyblue; }
+      color: aqua; }
   .menu .nav-link {
     display: inline-block;
     position: relative;
@@ -76,7 +77,7 @@
     color: #fff;
     transition: all 0.5s ease-out; }
     .menu .nav-link:hover {
-      color: skyblue; }
+      color: aqua; }
 
 .nav-item:nth-child(1) {
   transition-delay: 0.1s; }
@@ -100,11 +101,11 @@ body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5; }
-  body#bgimg {
+  body#bg-img {
     background: url(/dist/img/background.jpg);
     background-attachment: fixed;
     background-size: cover; }
-    body#bgimg .overlay {
+    body#bg-img .overlay {
       position: absolute;
       top: 0;
       right: 0;
@@ -138,7 +139,7 @@ header {
   width: 100%; }
 
 .text-secondary {
-  color: skyblue; }
+  color: aqua; }
 
 main {
   padding: 4rem;
@@ -150,7 +151,7 @@ main {
       padding: 0.4rem;
       transition: all 0.5s ease-out; }
       main .icons a:hover {
-        color: skyblue; }
+        color: aqua; }
   main.home {
     overflow: hidden; }
     main.home h1 {
@@ -167,7 +168,7 @@ main {
     max-width: 30vh;
     max-width: 30vh;
     border-radius: 50%;
-    border: skyblue 3px solid; }
+    border: aqua 3px solid; }
   .about-info .bio {
     grid-area: bio;
     font-size: 1.5rem; }
@@ -180,7 +181,7 @@ main {
   .about-info .job {
     background: #2f2f2f;
     padding: 0.5rem;
-    border-bottom: skyblue 3px solid; }
+    border-bottom: aqua 3px solid; }
 
 .projects {
   display: grid;
@@ -191,7 +192,7 @@ main {
     border: white solid; }
     .projects img:hover {
       opacity: 0.5;
-      border-color: skyblue;
+      border-color: aqua;
       transition: all 0.5s ease-out; }
 
 .boxes {
@@ -208,7 +209,7 @@ main {
     transition: all 0.5s ease-out; }
     .boxes div:hover {
       padding: 0.5rem 1.5rem;
-      background: skyblue;
+      background: aqua;
       color: #000; }
       .boxes div:hover span {
         color: #000; }
@@ -219,7 +220,7 @@ main {
   border: 0;
   margin-bottom: 0.3rem; }
   .btn:hover, .btn-dark:hover, .btn-light:hover {
-    background: skyblue;
+    background: aqua;
     color: #000; }
 
 .btn-dark {
