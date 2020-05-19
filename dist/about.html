@@ -8,6 +8,8 @@
 
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+  <script src="https://unpkg.com/d3@4"></script>
+	<script src="https://unpkg.com/topojson-client@3"></script>
 </head>
 
 <body> 
@@ -65,26 +67,19 @@
       
       <div class="bio">
         <h3 class="text-secondary">Biography</h3>
-        <p> I'm a Data Science student at Minerva Schools at KGI, interested in data journalism and visualisation, as well as applying data science to the digital humanities! Born and raised in Hong Kong, I am currently based in Singapore.</p>
+        <p> I'm a Data Science student at Minerva Schools at KGI, interested in data journalism and visualisation, as well as applying data science to the digital humanities! Born and raised in Hong Kong, I am currently based in Singapore.
+        </p>
+        
+        <p>The map shows the places that I am lucky to have been to over the past 5 years of my life. Hover over the circles to see why I was there! </p>
       </div>
 
-      <div class="job job-1">
-        <h3> Founding Editor of <em>Babel</em></h3>
-        <h5>Senegal | Jan - Apr 2017</h5>
-        <p>I founded <em>Babel</em>, the multi-lingual educational newspaper of Joal-Fadiouth. Interviewed and translated contributions from residents of Joal-Fadiouth into French, Spanish, English and Wolof.</p>
+      <div class="map">
+        <div id="tooltip" class="hidden">
+          <p><strong><span id="place">100</span></strong></p>
+          <p><span id="time">Important Label Heading</span></p>
+        </div>
       </div>
 
-      <div class="job job-2">
-        <h3>Journalist at <em> The Straits Times</em> </h3>
-        <h5>Singapore | Jun - Sep 2017 </h5>
-        <p>As a member of the <em>The Straits Times</em> Editorial Project Unit, I managed <em>The Straits Times</em> contributions to Asia News Network and collaborated with journalists from other Southeast Asian countries for ASEAN 50th anniversary editorial projects. </p>
-      </div>
-
-      <div class="job job-3">
-        <h3>Development Intern at <em>Global Citizen Year</em></h3>
-        <h5>Oakland | Jun 2017 - Feb 2018</h5>
-        <p> I streamlined Global Citizen Year philanthropic pipeline by operating Salesforce systems and carried out prospect research and qualification, and donor stewardship efforts.</p>
-      </div>
     </div>
   </main>
 
@@ -92,7 +87,8 @@
     Updated May 2020. Website layout referenced from <a class = "text-secondary" href="https://www.traversymedia.com/">Brad Traversy</a>.
   
   </footer>
+  
 
-  <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

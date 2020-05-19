@@ -34,3 +34,128 @@ function toggleMenu() {
   }
 }
 
+
+
+//Create SVG element
+var svg = d3.select(".map")
+  .append("svg")
+//			.attr("width", w)
+//		.attr("height", h)
+//		.style("background-color", '#efefef')
+;
+
+//Define map projection
+var projection = d3.geoMercator()																	.scale([240])
+                    .translate([650,400]);
+                
+
+//Define path generator
+var path = d3.geoPath()
+         .projection(projection);
+
+d3.json("https://unpkg.com/world-atlas@1/world/	110m.json", function(error, world) {
+if (error) throw error;
+  svg.selectAll("path")
+  .data(topojson.feature(world , world.objects.countries).features)
+  .enter().
+  append("path")
+  .attr("d", path)
+  .style("opacity", 0.7)
+  .style("fill", "black")
+
+  //Load in agriculture data
+  d3.csv("location_viz.csv", function(data) {
+    
+    svg.selectAll("circle")
+        .raise()
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", function(d) {
+          return projection([d.lon, d.lat])[0];
+        })
+        .attr("cy", function(d) {
+          return projection([d.lon, d.lat])[1];
+        })
+        .attr("r", function(d) {
+          return 15;})
+        //size of circle being duration
+//				.
+        .style("fill", "aqua")
+        .style("stroke", "white")
+        .style("stroke-width", 0.5)
+        .style("opacity", 0.7)
+
+        .on("mouseover", function(p) {
+           d3.select(this)
+           .transition()
+            .duration(500)
+            .style("opacity", 1)
+            .style("fill", "orange")
+            .attr("r", function(d) {
+              return parseInt(d.month) * 3 + 14;
+            });
+        
+          //Get this bar's x/y values, then augment for the tooltip
+          var xPosition = parseFloat(d3.select(this).attr("cx")) + 750;
+          var yPosition = parseFloat(d3.select(this).attr("cy")) + 300;
+          d3.select("#tooltip")
+            .style("left", xPosition + "px")
+            .style("top", yPosition + "px")						
+            .select("#place")
+            .text(p.place);
+
+          if (p.month < 1) {
+              d3.select("#tooltip")
+                .style("left", xPosition + "px")
+                .style("top", yPosition + "px")						
+                .select("#time")
+                .text("I spent less than a month here.");
+              } else if (p.month == 1) {
+              d3.select("#tooltip")
+                .style("left", xPosition + "px")
+                .style("top", yPosition + "px")						
+                .select("#time")
+                .text("I spent approximately " + p.month + " month here.");
+
+            } else {
+              d3.select("#tooltip")
+                .style("left", xPosition + "px")
+                .style("top", yPosition + "px")						
+                .select("#time")
+                .text("I spent approximately  " + p.month + " months here.");
+            };
+
+          d3.select("#tooltip")
+            .style("left", xPosition + "px")
+            .style("top", yPosition + "px")						
+            .select("#time")
+            
+
+   
+          //Show the tooltip
+          d3.select("#tooltip").classed("hidden", false);
+
+        })
+
+
+        .on("mouseout", function(d) {
+          //Hide the tooltip
+          d3.select("#tooltip").classed("hidden", true)
+
+           d3.select(this)
+             .transition()
+            .duration(250)
+            .style("fill", "aqua")
+            .style("stroke", "white")
+            .style("stroke-width", 0.5)
+            .style("opacity", 0.7)
+            .attr("r", function(d) {
+              return 15;
+            })	
+            
+         });
+     
+});
+});
+
