@@ -160,8 +160,9 @@ main {
 .about-info {
   display: grid;
   grid-gap: 2rem;
-  grid-template-areas: 'bioimage map map' 'bio map map';
-  grid-template-columns: repeat(3, 1fr); }
+  grid-row-gap: 5rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: 'bioimage bio' 'map map'; }
   .about-info .bio-image {
     grid-area: bioimage;
     margin: auto;
@@ -172,17 +173,19 @@ main {
   .about-info .bio {
     grid-area: bio;
     font-size: 1.5rem; }
-  .about-info .map {
+  .about-info .svg-container {
     grid-area: map;
-    width: 1350px;
-    height: 700px;
-    border: aqua solid 3px;
-    z-index: 1;
-    justify-self: center; }
-  .about-info svg {
+    display: inline-block;
+    position: relative;
     width: 100%;
     height: 100%;
-    margin: 0px auto; }
+    padding-bottom: 50%;
+    vertical-align: top;
+    overflow: clip; }
+  .about-info .svg-content {
+    position: absolute;
+    top: 0;
+    left: 0; }
   .about-info svg path {
     pointer-events: none; }
   .about-info #tooltip {
@@ -203,8 +206,8 @@ main {
     display: none; }
   .about-info #tooltip p {
     margin: 0;
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
     color: white; }
 
 .projects {
@@ -269,7 +272,14 @@ main {
 
 @media screen and (min-width: 769px) and (max-width: 1170px) {
   .projects {
-    grid-template-columns: repeat(3, 1fr); } }
+    grid-template-columns: repeat(3, 1fr); }
+  .about-info {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 'bioimage bio' 'map map'; }
+    .about-info .svg-container {
+      overflow: auto;
+      display: block;
+      position: relative; } }
 
 @media screen and (max-width: 768px) {
   main {
@@ -298,8 +308,9 @@ main {
       width: 150px;
       height: 150px; }
   .about-info {
-    grid-template-areas: 'bioimage' 'bio';
-    grid-template-columns: 1fr; }
+    grid-row-gap: 2rem;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'bioimage' 'bio' 'map'; }
   .projects {
     grid-template-columns: repeat(2, 1fr); } }
 

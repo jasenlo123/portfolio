@@ -34,15 +34,12 @@ function toggleMenu() {
   }
 }
 
-
-
 //Create SVG element
-var svg = d3.select(".map")
-  .append("svg")
-//			.attr("width", w)
-//		.attr("height", h)
-//		.style("background-color", '#efefef')
-;
+var svg = d3.select("div#container")
+.append("svg")
+.attr("preserveAspectRatio", "xMidYMax meet")
+.attr("viewBox", "0 0 1350 700")
+.classed("svg-content", true);
 
 //Define map projection
 var projection = d3.geoMercator()																	.scale([240])
@@ -97,46 +94,50 @@ if (error) throw error;
             });
         
           //Get this bar's x/y values, then augment for the tooltip
-          var xPosition = parseFloat(d3.select(this).attr("cx")) + 750;
-          var yPosition = parseFloat(d3.select(this).attr("cy")) + 300;
+          var div = d3.select("body").append("div")
+          .attr("class", "tooltip")
+          .style("display", "none");
+
+          var xPosition = parseFloat(d3.event.pageX)-30 ;
+          var yPosition = parseFloat(d3.event.pageY)-820 ;
+
+          //location
           d3.select("#tooltip")
             .style("left", xPosition + "px")
             .style("top", yPosition + "px")						
             .select("#place")
             .text(p.place);
 
+          //time
           if (p.month < 1) {
               d3.select("#tooltip")
                 .style("left", xPosition + "px")
                 .style("top", yPosition + "px")						
                 .select("#time")
-                .text("I spent less than a month here.");
+                .text("I spent less than a month here in the past 5 years.");
               } else if (p.month == 1) {
               d3.select("#tooltip")
                 .style("left", xPosition + "px")
                 .style("top", yPosition + "px")						
                 .select("#time")
-                .text("I spent approximately " + p.month + " month here.");
+                .text("I spent approximately " + p.month + " month here in the past 5 years.");
 
             } else {
               d3.select("#tooltip")
                 .style("left", xPosition + "px")
                 .style("top", yPosition + "px")						
                 .select("#time")
-                .text("I spent approximately  " + p.month + " months here.");
+                .text("I spent approximately  " + p.month + " months here in the past 5 years.");
             };
 
-          d3.select("#tooltip")
-            .style("left", xPosition + "px")
-            .style("top", yPosition + "px")						
-            .select("#time")
-            
 
    
           //Show the tooltip
           d3.select("#tooltip").classed("hidden", false);
 
         })
+
+
 
 
         .on("mouseout", function(d) {

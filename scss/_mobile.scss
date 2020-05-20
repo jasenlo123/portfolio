@@ -12,6 +12,19 @@
     grid-template-columns: repeat(3,1fr);
   }
 
+  .about-info {
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas: 
+    'bioimage bio'
+    'map map';
+    
+    .svg-container {
+      overflow: auto;
+      display: block;
+      position: relative;
+    }
+  }
+
 }
 // Tablets
 @include mediaMd {
@@ -54,14 +67,12 @@
   }
 
   .about-info {
-    grid-template-areas: 
+    grid-row-gap: 2rem; 
+    grid-template-columns: 1fr;grid-template-areas: 
     'bioimage'
-    'bio';
-    
-    //'job1' 
-    //'job2' 
-    //'job3'
-    grid-template-columns: 1fr;
+    'bio'
+    'map';
+  
   }
 
   .projects {
